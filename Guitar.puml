@@ -1,0 +1,43 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Inventory{
+}
+
+class Guitar {
+- serialNumber: String
+- price: double
+size()
+}
+
+Inventory o-- "0..*" Guitar:consists of
+
+class GuitarSpec{
+-
+
+}
+enum Builder {
+ AIRLINE
+ KOLL
+ BURNS
+ CORT
+ FENDER
+}
+
+enum Type {
+CLASSICAL
+ACOUSTIC
+ELECTROACOUSTIC
+ELECTRIC
+FENDER
+}
+
+enum Wood {
+ALDER
+MAHOGANY
+OAK;
+}
+
+Wood -[hidden]-Builder
+
+@enduml
