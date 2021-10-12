@@ -12,7 +12,7 @@ public class FindGuitarTester {
 
         //what customer is looking for
         GuitarSpec whatLookingFor = new GuitarSpec( Builder.FENDER, "Stratocastor",
-                Type.ACOUSTIC,6, Wood.ALDER, Wood.ALDER);
+                Type.ACOUSTIC, Wood.ALDER, Wood.ALDER,6);
 
         List matchingGuitars = inventory.search(whatLookingFor);
 
@@ -29,8 +29,8 @@ public class FindGuitarTester {
                         guitar.getSpec().getBuilder()+ "\n" +
                         guitar.getSpec().getModel()+ "\n" +
                         guitar.getSpec().getType()+ "\n" +
-                        guitar.getSpec().getBackwood()+ "\n" +
-                        guitar.getSpec().getTopwood());
+                        guitar.getSpec().getBackWood()+ "\n" +
+                        guitar.getSpec().getTopWood());
             }
         }
         else
@@ -42,13 +42,17 @@ public class FindGuitarTester {
     public static void initialiseInventory(Inventory inventory)
     {
         //add guitars to the inventory
-        GuitarSpec spec = new GuitarSpec(Builder.FENDER, "Stratocastor", Type.ACOUSTIC,6, Wood.ALDER, Wood.ALDER);
-        inventory.addGuitar("V00001",
+        GuitarSpec spec = new GuitarSpec(Builder.FENDER, "Stratocastor", Type.ACOUSTIC, Wood.ALDER, Wood.ALDER,6);
+        GuitarSpec spec1 = new GuitarSpec((Builder.AIRLINE, "Stratocastor",Type.ACOUSTIC,Wood.ALDER,Wood.ALDER,12);
+        MandolinSpec mandolinSpec1 = new MandolinSpec(Builder.FENDER, "Stratocastor",Type.ELECTRIC,Wood.OAK,Wood.OAK,Style.F);
+        MandolinSpec mandolinSpec2 = new MandolinSpec(Builder.AIRLINE, "Stratocastor",Type.ACOUSTIC,Wood.ALDER,Wood.ALDER,Style.F);
+
+        inventory.addInstrument("V00001",
                 1499.99,
                 spec
                 );
 
-        inventory.addGuitar("V00002",
+        inventory.addInstrument("V00002",
                 1699.99,
                 spec);
     }

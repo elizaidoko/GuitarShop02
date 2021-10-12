@@ -1,45 +1,22 @@
-public class GuitarSpec {
-    private Builder builder;
-    private String model;
-    private Type type;
+public class GuitarSpec extends InstrumentSpec {
+
     private int numStrings;
-    private Wood backWood;
-    private Wood topWood;
 
 
-    public GuitarSpec(Builder builder,String model, Type type, int numStrings, Wood backWood, Wood topWood){
-        this.builder = builder;
-        this.model = model;
-        this.type = type;
+    public GuitarSpec(Builder builder,String model, Type type, Wood backWood, Wood topWood, int numStrings){
+        super(builder,model,type,backWood,topWood);
         this.numStrings = numStrings;
-        this.backWood = backWood;
-        this.topWood = topWood;
     }
 
-    public Builder getBuilder(){
-        return builder;
-    }
-    public String getModel(){
-        return model;
-    }
-    public Type getType(){
-        return type;
-    }
 
     public int getNumStrings() {
         return numStrings;
     }
 
-    public Wood getBackwood(){
-        return backWood;
-    }
-    public Wood getTopwood(){
-        return topWood;
-    }
 
     public Boolean matches(GuitarSpec otherSpec){
 
-            if (builder != otherSpec.getBuilder())
+            if (super.getBuilder() != otherSpec.getBuilder())
                 return false;
 
             String model = otherSpec.getModel().toLowerCase();
@@ -47,16 +24,16 @@ public class GuitarSpec {
                     (!model.equals(model.toLowerCase())))
                 return false;
 
-            if (type != otherSpec.getType())
+            if (super.getType() != otherSpec.getType())
                 return false;
 
             if (numStrings != otherSpec.getNumStrings())
                 return false;
 
-            if (backWood != otherSpec.getBackwood())
+            if (super.getBackWood() != otherSpec.getBackWood())
                 return false;
 
-            if (topWood !=otherSpec.getTopwood())
+            if (super.getBackWood() !=otherSpec.getTopWood())
                 return false;
 
             return true;

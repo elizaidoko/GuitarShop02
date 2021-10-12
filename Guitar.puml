@@ -2,18 +2,32 @@
 'https://plantuml.com/class-diagram
 
 class Inventory{
+addInstrument()
+search(GuitarSpec)
+search(MandolinSpec)
+}
+abstract class Instrument{
+- serialNumber: String
+- price: double
 }
 
 class Guitar {
-- serialNumber: String
-- price: double
-size()
+
+getSpec() : GuitarSpec
 }
 
-Inventory o-- "0..*" Guitar:consists of
+class Mandolin {
+
+getSpec() : MandolinSpec
+}
+
+abstract class InstrumentSpec{
+builder
+
+}
 
 class GuitarSpec{
--
+
 
 }
 enum Builder {
@@ -39,5 +53,5 @@ OAK;
 }
 
 Wood -[hidden]-Builder
-
+Inventory o-- "0..*" Guitar:consists of
 @enduml
